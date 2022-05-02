@@ -25,7 +25,19 @@ namespace SkokiCalc
             double jumpMeters;
             double jumpPoints;
             Console.WriteLine("Podaj odległość:");
-
+            jumpMeters = double.Parse(Console.ReadLine());
+            if(jumpMeters>kPoint)
+            {
+                meters = jumpMeters - kPoint;
+                jumpPoints = basePoints + meterPoints * meters;
+            }else if(jumpMeters<kPoint){
+                meters = kPoint - jumpMeters;
+                jumpPoints = basePoints - meterPoints * meters;
+            }
+            else
+            {
+                jumpPoints = basePoints;
+            }
             Console.WriteLine("punkty za oddany skok:"+jumpPoints);
             return 0;
         }
